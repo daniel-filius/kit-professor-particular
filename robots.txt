@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://daniel-filius.github.io/kit-professor-particular/sitemap.xml
