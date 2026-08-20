@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kit de Gestão para Professor Particular — Agenda, Financeiro e Registro Pedagógico</title>
+<meta name="description" content="Planilha completa para professor particular autônomo: cadastro de alunos, agenda de aulas, controle de pagamentos e registro pedagógico integrados, sem mensalidade.">
+<meta property="og:title" content="Kit de Gestão para Professor Particular">
+<meta property="og:description" content="Agenda + Financeiro + Registro Pedagógico integrados numa só planilha. Pagamento único, sem mensalidade.">
+<meta property="og:type" content="website">
+<link rel="canonical" href="https://daniel-filius.github.io/kit-professor-particular/">
+<style>
+  :root {
+    --azul: #0b3d5c;
+    --azul-claro: #1b6ca8;
+    --verde: #1a7a3c;
+    --bg: #f5f7fa;
+    --card: #ffffff;
+    --texto: #1c2733;
+    --borda: #dfe6ee;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    background: var(--bg); color: var(--texto); line-height: 1.55;
+  }
+  header {
+    background: linear-gradient(135deg, var(--azul) 0%, var(--azul-claro) 100%);
+    color: #fff; padding: 48px 20px 56px; text-align: center;
+  }
+  header h1 { font-size: 1.9rem; margin: 0 0 12px; max-width: 780px; margin-inline: auto; }
+  header p { font-size: 1.05rem; opacity: 0.95; max-width: 620px; margin: 0 auto; }
+  .wrap { max-width: 900px; margin: 0 auto; padding: 0 20px; }
+  .aviso-topo {
+    background: #fff3cd; border: 1px solid #ffe08a; color: #7a5b00;
+    padding: 14px 18px; border-radius: 10px; margin: -28px auto 32px; max-width: 820px;
+    font-size: 0.92rem;
+  }
+  .produto { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin: 32px 0 48px; align-items: start; }
+  @media (max-width: 720px) { .produto { grid-template-columns: 1fr; } }
+  .card {
+    background: var(--card); border: 1px solid var(--borda); border-radius: 14px;
+    padding: 24px; box-shadow: 0 2px 10px rgba(20,40,60,0.06);
+  }
+  .card img.capa { width: 100%; border-radius: 8px; margin-bottom: 16px; display: block; }
+  .info h2 { font-size: 1.3rem; color: var(--azul); margin: 0 0 6px; }
+  .info .sub { font-size: 0.95rem; color: #4a5a6a; margin-bottom: 14px; }
+  .preco { font-size: 1.8rem; font-weight: 700; color: var(--verde); margin: 14px 0; }
+  ul.beneficios { padding-left: 20px; margin: 12px 0; font-size: 0.92rem; }
+  ul.beneficios li { margin-bottom: 8px; }
+  .cta-btn {
+    display: inline-block; width: 100%; text-align: center; padding: 14px 18px;
+    background: var(--verde); color: #fff; border: none; border-radius: 8px;
+    font-size: 1rem; font-weight: 600; cursor: pointer; margin-top: 10px;
+  }
+  .cta-btn:hover { background: #14602f; }
+  .pix-box { display: none; margin-top: 18px; border-top: 1px dashed var(--borda); padding-top: 18px; }
+  .pix-box.aberto { display: block; }
+  .pix-box img.qr { width: 190px; height: 190px; display: block; margin: 0 auto 14px; border: 1px solid var(--borda); border-radius: 8px; }
+  .pix-code {
+    font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 0.68rem;
+    background: #f0f3f7; border: 1px solid var(--borda); border-radius: 8px;
+    padding: 10px; word-break: break-all; margin-bottom: 10px;
+  }
+  .copiar-btn {
+    width: 100%; padding: 10px; background: var(--azul-claro); color: #fff;
+    border: none; border-radius: 8px; font-size: 0.88rem; cursor: pointer; margin-bottom: 8px;
+  }
+  .copiar-btn:hover { background: var(--azul); }
+  .passo { font-size: 0.8rem; color: #445; margin-top: 10px; }
+  section.explicacao {
+    background: var(--card); border: 1px solid var(--borda); border-radius: 14px;
+    padding: 28px; margin-bottom: 40px;
+  }
+  section.explicacao h2 { color: var(--azul); font-size: 1.3rem; }
+  section.explicacao ol { padding-left: 22px; }
+  section.explicacao li { margin-bottom: 10px; }
+  .faq { margin-bottom: 40px; }
+  .faq h2 { color: var(--azul); }
+  .faq details { background: var(--card); border: 1px solid var(--borda); border-radius: 10px; padding: 14px 18px; margin-bottom: 10px; }
+  .faq summary { cursor: pointer; font-weight: 600; }
+  footer { background: #0b1520; color: #b8c4d0; padding: 32px 20px; font-size: 0.82rem; text-align: center; }
+  footer a { color: #8fc1ea; }
+  .disclaimer { max-width: 760px; margin: 0 auto; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Kit de Gestão para Professor Particular</h1>
+  <p>Agenda de aulas, controle de pagamentos e registro pedagógico integrados numa só planilha — pagamento único, sem mensalidade.</p>
+</header>
+
+<div class="wrap">
+
+<div class="aviso-topo">
+  <strong>Aviso importante:</strong> este é um produto digital independente, sem vínculo com Superprof, iProfe ou qualquer outra plataforma de aulas particulares. É uma ferramenta de organização — não uma plataforma de captação de alunos.
+</div>
+
+<section class="produto">
+
+  <div class="card">
+    <img class="capa" src="assets/capa-kit-professor-particular.png" alt="Capa do Kit de Gestão para Professor Particular — visual das 3 abas">
+  </div>
+
+  <div class="card info">
+    <h2>Kit de Gestão para Professor Particular</h2>
+    <p class="sub">Planilha completa (.xlsx) — Agenda + Financeiro + Registro Pedagógico</p>
+    <ul class="beneficios">
+      <li><strong>Cadastro de alunos + agenda do mês integrados</strong>: cadastre nome, matéria, horário e valor da aula uma vez só; a agenda puxa os dados automaticamente.</li>
+      <li><strong>Painel financeiro automático</strong>: veja quanto cada aluno deve (aulas confirmadas × valor combinado), registre pagamentos recebidos e acompanhe o status Pago / Pendente / Atrasado sem fazer conta na mão.</li>
+      <li><strong>Resumo mensal de receita automático</strong>: total previsto, total recebido e % recebido calculados sozinhos.</li>
+      <li><strong>Registro pedagógico por aula</strong>: anote o conteúdo trabalhado, observações e um nível de domínio (1 a 5) — indicador de evolução por aluno é calculado automaticamente.</li>
+      <li><strong>Pagamento único, sem mensalidade</strong>: ao contrário de apps de gestão que cobram por mês, você paga uma vez e usa para sempre.</li>
+      <li>Funciona em Excel, LibreOffice e Google Sheets — computador ou celular.</li>
+      <li>Já vem com 3 alunos de exemplo preenchidos para você entender a lógica antes de colocar seus dados reais.</li>
+    </ul>
+    <div class="preco">R$ 47,00</div>
+    <button class="cta-btn" onclick="document.getElementById('pix-kit').classList.toggle('aberto')">Comprar via Pix</button>
+    <div class="pix-box" id="pix-kit">
+      <img class="qr" src="assets/qr-kit-professor-particular.png" alt="QR Code Pix - Kit de Gestão para Professor Particular">
+      <div class="pix-code" id="codigo-kit">00020101021226880014br.gov.bcb.pix0131danielfilho.workspace@gmail.com0231Kit Gestao Professor Particular520400005303986540547.005802BR5916DANIEL B V FILHO6009SAO PAULO62150511KITPROFPART6304A867</div>
+      <button class="copiar-btn" onclick="copiarCodigo('codigo-kit', this)">Copiar código Pix (copia e cola)</button>
+      <p class="passo">1. Escaneie o QR ou cole o código no app do seu banco (valor já vem fixo: R$ 47,00).<br>
+      2. Pague normalmente pelo Pix.<br>
+      3. Envie o comprovante para <strong>danielfilho.workspace@gmail.com</strong> com o assunto <strong>"Pix Kit Professor Particular"</strong>.<br>
+      4. Você recebe o arquivo .xlsx por e-mail em resposta (confirmação manual, ver seção abaixo).</p>
+    </div>
+  </div>
+
+</section>
+
+<section class="explicacao">
+  <h2>Como funciona a entrega (honestidade total)</h2>
+  <p>Esta página não usa um gateway de pagamento com confirmação automática — é um Pix direto, com QR/código de valor fixo. Isso significa que a entrega do arquivo depende de um passo manual:</p>
+  <ol>
+    <li>Você paga via Pix (QR code ou copia-e-cola) — o valor já vem fixo (R$ 47,00).</li>
+    <li>Você envia o comprovante de pagamento para <strong>danielfilho.workspace@gmail.com</strong>.</li>
+    <li>O arquivo .xlsx é enviado por e-mail em resposta, normalmente em poucas horas.</li>
+  </ol>
+  <p>Se preferir esperar por um checkout 100% automático antes de comprar, entendemos — mas hoje a entrega é assim, sem letras miúdas.</p>
+</section>
+
+<section class="faq">
+  <h2>Perguntas frequentes</h2>
+  <details>
+    <summary>Preciso saber fórmulas de Excel?</summary>
+    <p>Não. Você só cadastra os alunos e lança as aulas/pagamentos; os cálculos e status são automáticos.</p>
+  </details>
+  <details>
+    <summary>Funciona no celular?</summary>
+    <p>Sim, abrindo com o app gratuito do Google Sheets.</p>
+  </details>
+  <details>
+    <summary>Quantos alunos cabem?</summary>
+    <p>O modelo vem pronto para até 30 alunos simultâneos — dá para duplicar linhas se precisar de mais.</p>
+  </details>
+  <details>
+    <summary>É integrado com o Superprof/iProfe ou outra plataforma?</summary>
+    <p>Não, é uma planilha independente — funciona com qualquer forma de captar aluno (indicação, plataforma, redes sociais).</p>
+  </details>
+  <details>
+    <summary>Serve para dar aula em grupo (não só individual)?</summary>
+    <p>Serve, mas o modelo foi pensado para controle por aluno — se você dá aula em turma, cadastre a turma como se fosse "um aluno".</p>
+  </details>
+  <details>
+    <summary>Quanto tempo demora para receber o arquivo após o Pix?</summary>
+    <p>A confirmação é manual (ver seção "Como funciona a entrega" acima) — normalmente em poucas horas após o envio do comprovante para danielfilho.workspace@gmail.com.</p>
+  </details>
+</section>
+
+</div>
+
+<footer>
+  <div class="disclaimer">
+    <p><strong>Produto digital independente.</strong> Ferramenta de gestão pessoal para professores particulares autônomos. Sem vínculo com Superprof, iProfe ou qualquer outra plataforma, escola, curso ou instituição. Entrega 100% digital.</p>
+    <p>Contato: <a href="mailto:danielfilho.workspace@gmail.com">danielfilho.workspace@gmail.com</a></p>
+  </div>
+</footer>
+
+<script>
+function copiarCodigo(id, btn) {
+  const el = document.getElementById(id);
+  const texto = el.textContent.trim();
+  navigator.clipboard.writeText(texto).then(function () {
+    const original = btn.textContent;
+    btn.textContent = "Copiado!";
+    setTimeout(function () { btn.textContent = original; }, 2000);
+  }).catch(function () {
+    // fallback: seleciona o texto pra copiar manualmente
+    const range = document.createRange();
+    range.selectNode(el);
+    window.getSelection().removeAllRanges();
+    window.getSelection().addRange(range);
+  });
+}
+</script>
+
+</body>
+</html>
